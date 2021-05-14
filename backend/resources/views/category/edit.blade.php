@@ -6,6 +6,7 @@
 
 @section('content')
 
+<?php include(app_path().'/Helpers/function.php'); ?>
   
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -20,6 +21,7 @@
             <form action="{{ route('cate-update',['id' => $category->id]) }}", method="POST">
               @csrf
               <div class="form-group">
+                {!! showErrors($errors,'name') !!}
                 <label >ten Danh Muc</label>
                 <input class="form-control" type="text" name="name" placeholder="ten danh muc" value="{{$category->name}}">
               </div>

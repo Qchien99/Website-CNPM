@@ -24,8 +24,8 @@
         <div class="col-md-12">
           <table class="table">
             <thead>
-              <tr>
-                <th scope="col">#</th>
+              <tr class="bg-primary">
+                <th scope="col">STT</th>
                 <th scope="col">Tên Danh Mục</th>
                 <th scope="col">Hành Động</th>
               </tr>
@@ -37,8 +37,8 @@
                 <td>{{ $categories->firstItem() + $key }}</td>
                 <td>{{$category->name}}</td>
                 <td>
-                  <a href="{{route('cate-edit', ['id' => $category->id])}}" class="btn btn-info">Edit</a>
-                  <a onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');" href="{{route('cate-delete', ['id' => $category->id])}}" class="btn btn-danger">Delete</a>
+                  <a href="{{route('cate-edit', ['id' => $category->id])}}" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true"></i> Sửa</a>
+                  <a onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');" href="{{route('cate-delete', ['id' => $category->id])}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                 </td>
               </tr>
               @endforeach

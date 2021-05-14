@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AddCategoryRequest;
+use App\Http\Requests\EditCategoryRequest;
 use App\Models\Category;
 use App\Components\Recursive;
 use Illuminate\Support\Str;
@@ -24,14 +26,14 @@ class CategoryController extends Controller
 
         return view('category.add',compact('htmlOption'));
     }
-    public function store(Request $request){
+    public function store(AddCategoryRequest $request){
         $this->category->create([
             'name' => $request->name,
             'parent_id' => $request->parent_id,
             'slug' => Str::slug($request->name)
         ]);
         
-        return redirect()->route('cate-index');
+        return redirect()->route('cate-index')->with('success', 'Thêm danh mục thành công');
     }
 
     public function getCategory($parentId){
@@ -48,18 +50,18 @@ class CategoryController extends Controller
         return view('category.edit', compact('category', 'htmlOption'));
     }
 
-    public function update($id, Request $request){
+    public function update($id, EditCategoryRequest $request){
         $this->category->find($id)->update([
             'name' => $request->name,
             'parent_id' => $request->parent_id,
             'slug' => Str::slug($request->name)
         ]);
-        return redirect()->route('cate-index');
+        return redirect()->route('cate-index')->with('success', 'Sửa danh mục thành công');
     }
 
     public function delete($id){
         $this->category->find($id)->delete();
-        return redirect()->route('cate-index');
+        return redirect()->route('cate-index')->with('success', 'Xóa danh mục thành công');
     }
    
 

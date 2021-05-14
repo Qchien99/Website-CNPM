@@ -20,7 +20,7 @@
 			<table class="table">
 				<thead>
 					<tr class="bg-primary">
-						<th>ID</th>
+						<th>STT</th>
 						<th>Email</th>
 						<th>FullName</th>
 						<th>Address</th>
@@ -45,7 +45,7 @@
 								@endif
 							</td>
 							<td>
-								<a href="{{route('user.edit', ['id' => $user->id])}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+								<a href="{{route('user.edit', ['id' => $user->id])}}" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true"></i> Sửa</a>
 								<a onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');" href="{{route('user.delete', ['id' => $user->id])}}"  class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 							</td>
 						</tr>
