@@ -36,10 +36,10 @@
                with font-awesome or any other icon font library -->
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('cate-index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Danh Mục Sản Phẩm
+                Quản Lý Danh Mục
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
@@ -49,7 +49,7 @@
             <a href="{{route('user.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Danh Mục Nhân Viên
+                Quản Lý Nhân Viên
               </p>
             </a>
           </li>
