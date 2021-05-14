@@ -31,10 +31,10 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($categories as $category)
+              @foreach ($categories as $key => $category)
                   
               <tr>
-                <th scope="row">{{$category->id}}</th>
+                <td>{{ $categories->firstItem() + $key }}</td>
                 <td>{{$category->name}}</td>
                 <td>
                   <a href="{{route('cate-edit', ['id' => $category->id])}}" class="btn btn-info">Edit</a>
