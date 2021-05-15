@@ -38,6 +38,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{route('product.index')}}" class="nav-link">
+              <i class="nav-icon fa fa-tablet" aria-hidden="true"></i>
+              <p>
+                Quản Lý Sản Phẩm
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
