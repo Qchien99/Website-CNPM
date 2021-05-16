@@ -53,13 +53,13 @@
                         @if($product->state == 1)
                             <a class="btn btn-success" href="#" role="button">Còn hàng</a>
                         @else
-                           <a class="btn btn-danger" href="#" role="button">Hết hàng</a>
+                           <a class="btn btn-info" href="#" role="button">Hết hàng</a>
                         @endif 
                     </td>
                     <td>{{ $product->category->name }}</td>
                     <td>
                         <a href="{{ route('product.edit',['id' => $product->id])}}" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true"></i> Sửa</a>
-                        <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                        <a href="{{ route('product.delete',['id'=>$product->id])}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                     </td>
                 </tr>
                 @endforeach

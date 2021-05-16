@@ -19,9 +19,8 @@ class ProductController extends Controller
         return view('product.listproduct', compact('products'));
     }
     public function create(){
-        $categories = Category::all();
         $htmlOption = $this->getCategory($parentId = '');
-        return view('product.addproduct', compact('categories', 'htmlOption'));
+        return view('product.addproduct', compact('htmlOption'));
     }
 
     public function getCategory($parentId){
@@ -53,5 +52,43 @@ class ProductController extends Controller
         $product->save();
         return redirect()->route('product.index')->with('success','Thêm sản phẩm thành công');
     }
+
+    public function edit($id){
+        $product = Product::find($id);
+        $htmlOption = $this->getCategory($parentId = $product->categories_id);
+
+        return view('product.editproduct', compact('htmlOption','product'));
+    }
+    public function update(EditProductRequest $request, $id){
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->code = $request->code;
+        $product->slug = Str::slug($request->name);
+        $product->price = $request->price;
+        $product->state = $request->state;
+        $product->categories_id = $request->categories_id;
+
+        if($request->hasFile('image')){
+            $file = $request->image;
+            $file_name = Str::slug($request->name).'.'.$file->getClientOriginalExtension();
+            $path = public_path().'/uploads';
+            // Upload ảnh lên server
+            $file->move($path, $file_name);
+            // Xóa ảnh cũ
+            unlink($path.'/'.$product->image);
+            // Lưu tên ảnh vào CSDL
+            $product->image = $file_name;
+            // Khi thay đổi ảnh, thì phải xóa ảnh cũ trong thư mục uploads
+        }else{
+            $product->image = $product->image;
+        }
+        $product->save();
+        return redirect()->route('product.index')->with('success','Sửa sản phẩm thành công');
+    }
   
+    // public function delete($id){
+    //     $product = Product::find($id);
+    //     $product->delete();
+    //     return redirect()->route('product.index')->with('success','Xóa sản phẩm thành công');
+    // }
 }
