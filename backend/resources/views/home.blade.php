@@ -19,28 +19,23 @@
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Dự Án</h5>
 
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
+                  <br>
+                  Quản lý cửa hàng bán đồ điện tử
                 </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
               </div>
             </div>
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Miêu Tả</h5>
 
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
+                  Xây dựng trang web bán đồ điện tử, với những tính năng đăng bán hàng nhanh, tiện lợi và dễ dàng cho khách hàng và nhân viên.Ngoài ra, việc xây dựng trang web phù hợp với nhu cầu hiện nay khi tình hình dịch bệnh diễn biến xấu..
                 </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                
               </div>
             </div><!-- /.card -->
           </div>
@@ -48,26 +43,21 @@
           <div class="col-lg-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="m-0">Featured</h5>
+                <h5 class="m-0">Thành Viên Nhóm</h5>
               </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h6 class="card-title">Gồm Có:</h6>
+                <br>
+                <p class="card-text">
+                  Dương Quang Chiến<br>
+                  Đặng Ngọc Thuân<br>
+                  Đào Văn Hải<br>
+                  Lê Thị Ngọc Minh<strong> Nhóm Trưởng</strong><br>
+                  Triệu Kim Cúc<br>
+                  Phan Thị Quyên
+                </p>
               </div>
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
             </div>
           </div>
           <!-- /.col-md-6 -->
