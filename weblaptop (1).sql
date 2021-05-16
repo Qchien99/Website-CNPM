@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 15, 2021 lúc 08:11 PM
+-- Thời gian đã tạo: Th5 16, 2021 lúc 06:23 AM
 -- Phiên bản máy phục vụ: 10.3.16-MariaDB
 -- Phiên bản PHP: 7.3.6
 
@@ -130,8 +130,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `code`, `slug`, `image`, `price`, `state`, `categories_id`, `created_at`, `updated_at`) VALUES
-(9, 'đào văn hải', 'YOB4HQ0', 'dao-van-hai', 'dao-van-hai.PNG', '1500000.00', 1, 2, '2021-05-15 11:05:37', '2021-05-15 11:05:37'),
-(10, 'IPHONE 6s', 'sp01', 'iphone-6s', 'iphone-6s.jpg', '1500000.00', 1, 8, '2021-05-15 11:09:02', '2021-05-15 11:09:02');
+(10, 'IPHONE 8s', 'sp0144', 'iphone-8s', 'iphone-8s.jpg', '134566355.00', 0, 8, '2021-05-15 11:09:02', '2021-05-15 20:32:18'),
+(11, 'grbb', 'sac', 'grbb', 'grbb.jpg', '1500000000.00', 1, 3, '2021-05-15 20:33:18', '2021-05-15 20:33:18'),
+(12, 'đào văn hải', '3M8SUW7', 'dao-van-hai', 'dao-van-hai.jpg', '1500000.00', 0, 7, '2021-05-15 20:37:25', '2021-05-15 20:37:25'),
+(13, 'đào văn hải', 'XWRIAPJ', 'dao-van-hai', 'dao-van-hai.PNG', '1500000.00', 1, 3, '2021-05-15 20:41:54', '2021-05-15 20:41:54');
 
 -- --------------------------------------------------------
 
@@ -237,7 +239,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
