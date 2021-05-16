@@ -21,8 +21,8 @@
           <div class="col-md-12">
           <a href="{{ route('cate-create') }}" class="btn btn-success float-right m-2">ADD</a>
         </div>
-        <div class="col-md-12">
-          <table class="table">
+        <div class="col-md-12" >
+          <table class="table table-bordered"  height="400px">
             <thead>
               <tr class="bg-primary">
                 <th scope="col">STT</th>
@@ -38,7 +38,7 @@
                 <td>{{$category->name}}</td>
                 <td>
                   <a href="{{route('cate-edit', ['id' => $category->id])}}" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true"></i> Sửa</a>
-                  <a onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');" href="{{route('cate-delete', ['id' => $category->id])}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+                  <a onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này?');" href="{{route('cate-delete', ['id' => $category->id])}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                 </td>
               </tr>
               @endforeach

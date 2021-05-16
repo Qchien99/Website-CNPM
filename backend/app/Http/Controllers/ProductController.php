@@ -86,9 +86,9 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success','Sửa sản phẩm thành công');
     }
   
-    // public function delete($id){
-    //     $product = Product::find($id);
-    //     $product->delete();
-    //     return redirect()->route('product.index')->with('success','Xóa sản phẩm thành công');
-    // }
+    public function delete($id){
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('product.index')->with('success','Xóa sản phẩm thành công');
+    }
 }

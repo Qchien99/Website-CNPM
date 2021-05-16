@@ -17,7 +17,7 @@
 			<a href="{{route('user.create')}}" class="btn btn-success float-right m-2">ADD</a>
 		  </div>
 		  <div class="col-md-12">
-			<table class="table">
+			<table class="table table-bordered" height="400px">
 				<thead>
 					<tr class="bg-primary">
 						<th>STT</th>
