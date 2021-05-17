@@ -9,7 +9,10 @@ use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\EditProductRequest;
 use Illuminate\Support\Str;
 use App\Components\Recursive;
-
+use App\Components\CheckSearch;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Builder;
+use PhpParser\Node\Expr\Print_;
 
 class ProductController extends Controller
 {
@@ -91,4 +94,22 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.index')->with('success','Xóa sản phẩm thành công');
     }
+
+
+    // public function search(Request $request){
+    //     $keyword = $request->input('keyword');
+    //     $choose = $request->input('choose');
+    //     $check = new CheckSearch();
+    //     $table = $check->checkChoose($choose);
+    //     $changeChoose = $check->changeChoose($choose);
+    //     $str_key = $check->checkSearch($keyword);
+    //     $products = DB::table('products')
+    //         ->leftjoin('categories','products.categories_id', '=', 'categories.id')
+    //         ->where($table.'.'.$changeChoose, 'like', $str_key)
+    //         ->select('products.id','products.name','code','image','price','state','categories_id')
+    //         //->as('id','name','code','image','price','state','categories')
+    //         ->paginate(3);
+    //         //Print_r($products);
+    //    return view('product.listproduct', compact('products'));
+    // }
 }
