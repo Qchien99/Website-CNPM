@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 16, 2021 lúc 06:23 AM
+-- Thời gian đã tạo: Th5 19, 2021 lúc 03:18 PM
 -- Phiên bản máy phục vụ: 10.3.16-MariaDB
 -- Phiên bản PHP: 7.3.6
 
@@ -56,6 +56,37 @@ INSERT INTO `categories` (`id`, `name`, `parent_id`, `slug`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `fullname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` tinyint(3) UNSIGNED NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `customers`
+--
+
+INSERT INTO `customers` (`id`, `fullname`, `email`, `phone`, `password`, `gender`, `address`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyễn Văn Nam', 'kh01@gmail.com', '0444444444', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Nội', NULL, NULL),
+(2, 'Nguyễn Văn Phúc', 'kh02@gmail.com', '0444444555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Tĩnh', NULL, NULL),
+(3, 'Mai Âm Nhạc', 'kh03@gmail.com', '0444666555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Tây', NULL, NULL),
+(4, 'Nguyễn Thị Kim', 'kh03@gmail.com', '0477744555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Đông', NULL, NULL),
+(5, 'Chủ Tịch Kim', 'kh04@gmail.com', '0444448888', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Nam', NULL, NULL),
+(6, 'Ngô Thị Phúc', 'kh05@gmail.com', '0444111555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Bắc', NULL, NULL),
+(7, 'Nguyễn Phúc Phận', 'kh06@gmail.com', '0422244555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Giang', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `failed_jobs`
 --
 
@@ -92,7 +123,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2021_05_11_134531_add_column_deleted_at_table_users', 2),
 (5, '2021_05_14_055309_create_categories_table', 3),
 (6, '2021_05_14_062445_add_column_deleted_at_table_categories', 4),
-(7, '2021_05_15_153040_create_products_table', 5);
+(7, '2021_05_15_153040_create_products_table', 5),
+(9, '2021_05_18_130547_create_customers_table', 6);
 
 -- --------------------------------------------------------
 
@@ -181,6 +213,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -224,6 +262,12 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT cho bảng `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -233,7 +277,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
