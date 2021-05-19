@@ -24,14 +24,14 @@ class EditCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required | unique:categories,name,'.$this->id
+            'cate_name' => 'required | unique:categories,cate_name,'.$this->id
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Tên danh mục không được để trống',
-            'name.unique' => 'Danh mục đã tồn tại'
+            'cate_name.required' => 'Tên danh mục không được để trống',
+            'cate_name.unique' => 'Danh mục đã tồn tại'
         ];
     }
 }

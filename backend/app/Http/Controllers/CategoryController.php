@@ -28,9 +28,9 @@ class CategoryController extends Controller
     }
     public function store(AddCategoryRequest $request){
         $this->category->create([
-            'name' => $request->name,
+            'cate_name' => $request->cate_name,
             'parent_id' => $request->parent_id,
-            'slug' => Str::slug($request->name)
+            'slug' => Str::slug($request->cate_name)
         ]);
         
         return redirect()->route('cate-index')->with('success', 'Thêm danh mục thành công');
@@ -52,9 +52,9 @@ class CategoryController extends Controller
 
     public function update($id, EditCategoryRequest $request){
         $this->category->find($id)->update([
-            'name' => $request->name,
+            'cate_name' => $request->cate_name,
             'parent_id' => $request->parent_id,
-            'slug' => Str::slug($request->name)
+            'slug' => Str::slug($request->cate_name)
         ]);
         return redirect()->route('cate-index')->with('success', 'Sửa danh mục thành công');
     }

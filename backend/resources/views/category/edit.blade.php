@@ -21,9 +21,9 @@
             <form action="{{ route('cate-update',['id' => $category->id]) }}", method="POST">
               @csrf
               <div class="form-group">
-                {!! showErrors($errors,'name') !!}
+                {!! showErrors($errors,'cate_name') !!}
                 <label >ten Danh Muc</label>
-                <input class="form-control" type="text" name="name" placeholder="ten danh muc" value="{{$category->name}}">
+                <input class="form-control" type="text" name="cate_name" placeholder="ten danh muc" value="{{$category->cate_name}}">
               </div>
 
               <div class="form-group">

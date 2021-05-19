@@ -12,20 +12,28 @@ class CheckSearch {
     }
 
     function checkChoose($choose){
-        if($choose=='cate-name'){
+        if($choose=='cate_name'){
             $table = 'categories';
         }else{
             $table = 'products';
         }
         return $table;
     }
-
-    function changeChoose($choose){
-        if($choose=='cate-name'){
-            $choose='name';
+    
+    function checkState($choose,$keyword){
+        if($choose=='state'){
+            if($keyword=='còn hàng'){
+                $keyword=1;
+            }elseif($keyword=='hết hàng'){
+                $keyword=0;
+            }else{
+                $keyword=2;
+            }
         }
-        return $choose;
+        return $keyword;
     }
+
+
 }
 
 ?>

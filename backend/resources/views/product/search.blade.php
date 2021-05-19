@@ -11,7 +11,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     
-    @include('partials.content-header', ['name' => 'product', 'key'=>'List'])
+    @include('partials.content-header', ['name' => 'product', 'key'=>'Search'])
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -51,16 +51,16 @@
                 <tr>
                     <td>{{ $products->firstItem() + $key }}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-md-3"><img src="../uploads/{{ $product->image }}" width="100px" class="thumbnail"></div>
-                            <div class="col-md-9">
-                                <p><strong>Mã sản phẩm : {{ $product->code }}</strong></p>
-                                <p>Tên sản phẩm : {{ $product->name }}</p>
-                                
-                                
-                            </div>
-                        </div>
-                    </td>
+                      <div class="row">
+                          <div class="col-md-3"><img src="http://127.0.0.1:8000/uploads/{{ $product->image }}" width="100px" class="thumbnail"></div>
+                          <div class="col-md-9">
+                              <p><strong>Mã sản phẩm : {{ $product->code }}</strong></p>
+                              <p>Tên sản phẩm : {{ $product->name }}</p>
+                              
+                              
+                          </div>
+                      </div>
+                  </td>
                     <td>{{ $product->price }} VND</td>
                     <td>
                         @if($product->state == 1)
@@ -69,7 +69,7 @@
                            <a class="btn btn-info" href="#" role="button">Hết hàng</a>
                         @endif 
                     </td>
-                    <td>{{ $product->category->cate_name }}</td>
+                    <td>{{$product->cate_name}}</td>
                     <td>
                         <a href="{{ route('product.edit',['id' => $product->id])}}" class="btn btn-warning"><i class="fa fa-wrench" aria-hidden="true"></i> Sửa</a>
                         <a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');" href="{{ route('product.delete',['id'=>$product->id])}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
