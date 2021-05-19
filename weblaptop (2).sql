@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 19, 2021 lúc 03:18 PM
+-- Thời gian đã tạo: Th5 19, 2021 lúc 08:08 PM
 -- Phiên bản máy phục vụ: 10.3.16-MariaDB
 -- Phiên bản PHP: 7.3.6
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cate_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT 0,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -42,16 +42,16 @@ CREATE TABLE `categories` (
 -- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `parent_id`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'LAPTOP', 0, 'laptop', '2021-05-13 23:22:30', '2021-05-13 23:22:30', NULL),
-(2, 'ASUS', 1, 'asus', '2021-05-13 23:28:38', '2021-05-13 23:29:57', NULL),
-(3, 'ASUS Gaming', 2, 'asus-gaming', '2021-05-13 23:31:58', '2021-05-13 23:31:58', NULL),
-(4, 'đào văn hải', 3, 'dao-van-hai', '2021-05-13 23:33:19', '2021-05-13 23:33:54', '2021-05-13 23:33:54'),
-(5, 'đào văn hải', 0, 'dao-van-hai', '2021-05-13 23:34:49', '2021-05-13 23:34:55', '2021-05-13 23:34:55'),
-(6, 'ĐIỆN THOẠI', 0, 'dien-thoai', '2021-05-13 23:36:01', '2021-05-13 23:36:01', NULL),
-(7, 'OPPO', 6, 'oppo', '2021-05-13 23:36:15', '2021-05-13 23:36:15', NULL),
-(8, 'IPHONE', 6, 'iphone', '2021-05-13 23:36:30', '2021-05-13 23:36:30', NULL),
-(9, 'IPHONE 6s', 8, 'iphone-6s', '2021-05-13 23:38:06', '2021-05-13 23:38:06', NULL);
+INSERT INTO `categories` (`id`, `cate_name`, `parent_id`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Điện Thoại', 0, 'dien-thoai', '2021-05-19 10:07:52', '2021-05-19 10:07:52', NULL),
+(2, 'LapTop', 0, 'laptop', '2021-05-19 10:08:02', '2021-05-19 10:08:02', NULL),
+(3, 'Phụ Kiện', 0, 'phu-kien', '2021-05-19 10:08:15', '2021-05-19 10:08:15', NULL),
+(4, 'Iphone', 1, 'iphone', '2021-05-19 10:08:28', '2021-05-19 10:08:28', NULL),
+(5, 'OPPO', 1, 'oppo', '2021-05-19 10:08:43', '2021-05-19 10:08:43', NULL),
+(6, 'Iphone 8', 4, 'iphone-8', '2021-05-19 10:08:57', '2021-05-19 10:08:57', NULL),
+(7, 'ASUS', 2, 'asus', '2021-05-19 10:09:17', '2021-05-19 10:09:17', NULL),
+(8, 'Iphone 8 Plus', 4, 'iphone-8-plus', '2021-05-19 10:09:37', '2021-05-19 10:09:37', NULL),
+(9, 'Acer', 2, 'acer', '2021-05-19 10:09:54', '2021-05-19 10:09:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,13 +76,13 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `fullname`, `email`, `phone`, `password`, `gender`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyễn Văn Nam', 'kh01@gmail.com', '0444444444', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Nội', NULL, NULL),
-(2, 'Nguyễn Văn Phúc', 'kh02@gmail.com', '0444444555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Tĩnh', NULL, NULL),
-(3, 'Mai Âm Nhạc', 'kh03@gmail.com', '0444666555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Tây', NULL, NULL),
-(4, 'Nguyễn Thị Kim', 'kh03@gmail.com', '0477744555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Đông', NULL, NULL),
-(5, 'Chủ Tịch Kim', 'kh04@gmail.com', '0444448888', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Nam', NULL, NULL),
-(6, 'Ngô Thị Phúc', 'kh05@gmail.com', '0444111555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Bắc', NULL, NULL),
-(7, 'Nguyễn Phúc Phận', 'kh06@gmail.com', '0422244555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Giang', NULL, NULL);
+(1, 'Nguyễn Covid', 'kh01@gmail.com', '0222333666', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Nội', NULL, NULL),
+(2, 'Nguyễn Khoảng Cách', 'kh02@gmail.com', '0222333777', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Tây', NULL, NULL),
+(3, 'Nguyễn Khẩu Trang', 'kh03@gmail.com', '0222333888', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Đông', NULL, NULL),
+(4, 'Nguyễn Khai Báo', 'kh05@gmail.com', '0222333111', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Đông', NULL, NULL),
+(5, 'Nguyễn Khử Khuẩn', 'kh06@gmail.com', '0222333222', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 1, 'Hà Nam', NULL, NULL),
+(6, 'Nguyễn Không Tụ Tập', 'kh07@gmail.com', '0222333444', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Bắc', NULL, NULL),
+(7, 'Mai Âm Nhạc', 'kh08@gmail.com', '0222333555', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 2, 'Hà Tĩnh', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ INSERT INTO `customers` (`id`, `fullname`, `email`, `phone`, `password`, `gender
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -117,14 +117,14 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2021_05_11_134531_add_column_deleted_at_table_users', 2),
-(5, '2021_05_14_055309_create_categories_table', 3),
-(6, '2021_05_14_062445_add_column_deleted_at_table_categories', 4),
-(7, '2021_05_15_153040_create_products_table', 5),
-(9, '2021_05_18_130547_create_customers_table', 6);
+(34, '2014_10_12_000000_create_users_table', 1),
+(35, '2014_10_12_100000_create_password_resets_table', 1),
+(36, '2019_08_19_000000_create_failed_jobs_table', 1),
+(37, '2021_05_11_134531_add_column_deleted_at_table_users', 1),
+(38, '2021_05_14_055309_create_categories_table', 1),
+(39, '2021_05_14_062445_add_column_deleted_at_table_categories', 1),
+(40, '2021_05_15_153040_create_products_table', 1),
+(41, '2021_05_18_130547_create_customers_table', 1);
 
 -- --------------------------------------------------------
 
@@ -133,8 +133,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -162,10 +162,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `code`, `slug`, `image`, `price`, `state`, `categories_id`, `created_at`, `updated_at`) VALUES
-(10, 'IPHONE 8s', 'sp0144', 'iphone-8s', 'iphone-8s.jpg', '134566355.00', 0, 8, '2021-05-15 11:09:02', '2021-05-15 20:32:18'),
-(11, 'grbb', 'sac', 'grbb', 'grbb.jpg', '1500000000.00', 1, 3, '2021-05-15 20:33:18', '2021-05-15 20:33:18'),
-(12, 'đào văn hải', '3M8SUW7', 'dao-van-hai', 'dao-van-hai.jpg', '1500000.00', 0, 7, '2021-05-15 20:37:25', '2021-05-15 20:37:25'),
-(13, 'đào văn hải', 'XWRIAPJ', 'dao-van-hai', 'dao-van-hai.PNG', '1500000.00', 1, 3, '2021-05-15 20:41:54', '2021-05-15 20:41:54');
+(1, 'iphonn 8 plus like new', 'sp01', 'iphonn-8-plus-like-new', 'iphonn-8-plus-like-new.PNG', '1500000.00', 1, 6, '2021-05-19 10:11:19', '2021-05-19 10:16:32'),
+(2, 'iphone 8 new', 'sp02', 'iphone-8-new', 'iphone-8-new.jpg', '2500000.00', 1, 4, '2021-05-19 10:15:18', '2021-05-19 10:15:18'),
+(3, 'Acer gaming', 'sp03', 'acer-gaming', 'acer-gaming.jpg', '1500000000.00', 0, 9, '2021-05-19 10:16:01', '2021-05-19 10:16:01'),
+(4, 'tai nghe sony', 'sp04', 'tai-nghe-sony', 'tai-nghe-sony.jpg', '1500000.00', 0, 3, '2021-05-19 10:17:14', '2021-05-19 10:17:14');
 
 -- --------------------------------------------------------
 
@@ -176,10 +176,10 @@ INSERT INTO `products` (`id`, `name`, `code`, `slug`, `image`, `price`, `state`,
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `fullname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0395954444',
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0395954444',
   `level` tinyint(3) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -191,16 +191,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `password`, `address`, `email`, `phone`, `level`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'admin', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', NULL, 'admin@gmail.com', '0395954444', 2, NULL, NULL, NULL),
-(2, 'NV01', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hà Nội', 'nv01@gmail.com', '0395954444', 1, NULL, NULL, NULL),
-(3, 'NV02', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hồ Chí Minh', 'nv02@gmail.com', '0395954444', 1, NULL, NULL, NULL),
-(4, 'NV03', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Nghệ An', 'nv03@gmail.com', '0395954444', 1, NULL, NULL, NULL),
-(5, 'Admin02', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hà Nội', 'admin02@gmail.com', '0395954444', 2, NULL, NULL, NULL),
-(6, 'Admin03', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hà Nội', 'admin03@gmail.com', '0395954444', 2, NULL, NULL, NULL),
-(7, 'NV04', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hà Nội', 'nv04@gmail.com', '0395954444', 1, NULL, NULL, NULL),
-(8, 'NV05', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'Hà Nội', 'nv05@gmail.com', '0395954444', 1, NULL, NULL, NULL),
-(9, 'đào văn hải2', '$2y$10$z/8hESBx.2U6tTs.SufRkePBTDKF7U3hXg/3X9bGDAF3O0dACFBXW', 'số nhà 17 ngõ 153', 'daovhai0@gmail.com', '0979133244', 1, '2021-05-10 20:15:37', '2021-05-11 06:47:59', '2021-05-11 06:47:59'),
-(10, 'đào văn hải', '$2y$10$G5loCZc1Vnd3aDbCSfZEvuXdbkURi9q9MilKEfjuvpz8xDjEtyc/G', 'số nhà 17 ngõ 15', 'daovhai0110@gmail.com', '0979133267', 2, '2021-05-11 06:48:14', '2021-05-11 06:49:12', '2021-05-11 06:49:12');
+(1, 'admin', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'ha noi', 'admin@gmail.com', '0222555444', 2, NULL, NULL, NULL),
+(2, 'đào văn hải', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'số nhà 17 ngõ 15', 'daovhai0110@gmail.com', '0979133267', 2, '2021-05-19 10:19:02', '2021-05-19 10:20:24', NULL),
+(3, 'nhân viên 01', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'ho chi minh', 'nv01@gmail.com', '0979133267', 1, '2021-05-19 10:19:41', '2021-05-19 10:19:41', NULL),
+(4, 'nhân viên 02', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'ho chi minh', 'nv02@gmail.com', '0979133267', 1, '2021-05-19 10:20:12', '2021-05-19 10:20:39', '2021-05-19 10:20:39'),
+(5, 'nhân viên 03', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'ho chi minh', 'nv03@gmail.com', '0979133267', 1, '2021-05-19 10:21:23', '2021-05-19 10:21:23', NULL),
+(6, 'nhân viên 04', '$2y$10$ooPG9s1lcwUGYv1nqeyNcO0ccYJf8hlhm5dJXy7xoamvgiczXHB7S', 'ha tinh', 'nv04@gmail.com', '0979133225', 1, '2021-05-19 10:21:48', '2021-05-19 10:59:00', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -277,19 +273,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
