@@ -47,6 +47,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{route('customer.index')}}" class="nav-link">
+              <i class="nav-icon fa fa-users" aria-hidden="true"></i>
+              <p>
+                Quản Lý Khách Hàng
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
