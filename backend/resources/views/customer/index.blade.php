@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-<title>Trang Quản Trị</title>
+<title>Nhóm 10 | Khách Hàng</title>
 @endsection
 
 @section('content')

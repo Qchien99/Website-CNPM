@@ -108,7 +108,7 @@ class ProductController extends Controller
             ->join('categories','products.categories_id', '=', 'categories.id')
             ->where($table.'.'.$choose, 'like', $str_key)
             ->select('products.id','products.name','code','image','price','state','cate_name')
-            ->paginate(3);
+            ->get();
             //Print_r($products);
        return view('product.search', compact('products'));
     }

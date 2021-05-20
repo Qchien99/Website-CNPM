@@ -22,7 +22,7 @@ class CheckSearch {
     
     function checkState($choose,$keyword){
         if($choose=='state'){
-            if($keyword=='còn hàng'){
+            if($keyword =='còn hàng'){
                 $keyword=1;
             }elseif($keyword=='hết hàng'){
                 $keyword=0;

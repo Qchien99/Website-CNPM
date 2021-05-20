@@ -38,7 +38,7 @@
           <table class="table table-bordered" height="400px">
             <thead>
                 <tr class="bg-primary">
-                    <th>STT</th>
+                    <th>ID</th>
                     <th>Thông tin sản phẩm</th>
                     <th>Giá sản phẩm</th>
                     <th>Tình trạng</th>
@@ -49,7 +49,7 @@
             <tbody>
                 @foreach($products as $key => $product)
                 <tr>
-                    <td>{{ $products->firstItem() + $key }}</td>
+                    <td>{{ $product->id }}</td>
                     <td>
                       <div class="row">
                           <div class="col-md-3"><img src="http://127.0.0.1:8000/uploads/{{ $product->image }}" width="100px" class="thumbnail"></div>
@@ -80,7 +80,7 @@
           </table>
         </div>
         <div class="col-md-12">
-          {{ $products->links() }}
+          <a href="{{route('product.index')}}" class="btn btn-danger" type="button">Trở Về</a>
         </div>
         </div>
         <!-- /.row -->
